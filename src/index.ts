@@ -10,6 +10,7 @@ dotenv.config();
 app.use(cors());
 const MONGOURI = process.env.MONGOURI as string;
 mongoose.connect(MONGOURI,{
+  //@ts-ignore
   useNewUrlParser: true,
   useUnifiedTopology: true,
   connectTimeoutMS: 60000,
