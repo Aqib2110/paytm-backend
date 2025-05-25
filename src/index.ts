@@ -18,7 +18,7 @@ mongoose.connect(MONGOURI,{
   serverSelectionTimeoutMS: 60000,
 })
 .then(()=>console.log("connected to mongodb"))
-.catch((err)=>console.log(err));
+ .catch((err) => console.error("Connection to MongoDB failed", err));
 const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
 app.use(
   cors({
