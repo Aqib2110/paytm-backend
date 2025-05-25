@@ -9,7 +9,13 @@ app.use(express.urlencoded({extended:true}));
 dotenv.config();
 app.use(cors());
 const MONGOURI = process.env.MONGOURI as string;
-mongoose.connect(MONGOURI)
+mongoose.connect(MONGOURI,{
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  connectTimeoutMS: 60000,
+  socketTimeoutMS: 60000,
+  serverSelectionTimeoutMS: 60000,
+})
 .then(()=>console.log("connected to mongodb"))
 .catch((err)=>console.log(err));
 const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
